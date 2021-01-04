@@ -1,0 +1,5 @@
+v 1
+d 'SVY_CORR': Pairwise and partial correlations using survey weights
+d
+f svy_corr.ado
+f svy_corr.sthlp
