@@ -3,5 +3,5 @@ d Compassion International MERL Impact Research user-written programs
 p svy_corr Pairwise and partial correlations using survey weights
 p split_pii IPA command to remove personally identifying data from dataset
 p accent Remove accents and other extended characters from string variables or variable names
-p psmatch2 Propensity score and Mahanolobis matching from Edwin Leuven and Barbara Sianesi Check for most recent version on SSC
+p psmatch2 Propensity score and Mahanolobis Check for most recent version on SSC
 p adjrr Adjusted risk ratios and risk differences
