@@ -1,0 +1,5 @@
+v 1
+d 'ACCENT': Remove extended characters and accents from string variables and variable names
+d
+f accent.ado
+f accent.sthlp
