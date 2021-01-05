@@ -1,0 +1,14 @@
+v 1
+d 'GLMDOSE': Estimation of the generalized propensity score
+d Consider downloading directly from Stata Journal
+d
+d Ancillary files
+d lotterydataset.dta
+d output_flog.dta
+d output_proof.dta
+d examples.do
+d
+f st0328/glmdose.ado
+f st0328/glmgpscore.ado
+f st0328/glmdose.sthlp
+f st0328/glmgpscore.sthlp
