@@ -1,0 +1,12 @@
+v 1
+d 'ESTOUT': Simplifies regression tables
+d Consider downloading directly from Stata Journal
+d
+f _eststo.ado
+f _eststo.hlp
+f estout.ado
+f estout.hlp
+f eststo.ado
+f eststo.hlp
+f esttab.ado
+f esttab.hlp
