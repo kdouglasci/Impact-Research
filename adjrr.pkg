@@ -1,7 +1,7 @@
 v 1
 d 'ADJRR': Adjusted risk ratios and risk differences
-d
-* f meps2004_adjrr.dta
+d Additional files on Github
+d meps2004_adjrr.dta
+d adjrr_examples.do
 f adjrr.sthlp
 f adjrr.ado
-* f adjrr_examples.do
