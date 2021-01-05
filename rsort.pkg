@@ -1,0 +1,7 @@
+v 1
+d 'RSORT': randomly sorts dataset in memory.
+d Author: Phil Clayton, ANZDATA Registry, Australia
+d Consider downloading most recent version from SSC
+d
+f rsort.ado
+f rsort.sthlp
