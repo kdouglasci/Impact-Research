@@ -1,10 +1,10 @@
 v 1
 d Compassion International MERL Impact Research user-written programs
-p svy_corr Pairwise and partial correlations using survey weights
+p svy_corr Pairwise and partial correlations using survey weights, Compassion-written (Daniel Jensen)
 p split_pii IPA command to remove personally identifying data from dataset
-p accent Remove accents and other extended characters from string variables or variable names
-p psmatch2 Propensity score and Mahanolobis Check for most recent version on SSC
-p adjrr Adjusted risk ratios and risk differences
-p rsort Randomly sorts dataset in memory
-p estout Simplifies regression tables Stata Journal
-p glmdose.pkg Estimation of the generalized propensity score
+p accent Remove accents and other extended characters from string variables or variable names, Compassion-written (Daniel Jensen)
+p psmatch2 Mahanolobis and propensity score matching, from SSC
+p adjrr Adjusted risk ratios and risk differences, from Stata Journal (st0306)
+p rsort Randomly sorts dataset in memory with reproducible options, from SSC
+p estout Simplifies regression table output, from Stata Journal (st0085_1)
+p glmdose Package of commands for estimation of the generalized propensity score, from Stata Journal (st0328)
