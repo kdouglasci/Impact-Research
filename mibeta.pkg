@@ -1,0 +1,15 @@
+v 1
+d 'MIBETA' Standardized coefficients for multiply-imputed data
+d
+d DESCRIPTION/AUTHOR(S)
+d This command reports standardized coefficients and R-squared measures
+d for multiply-imputed data analyzed by using linear regression.
+d
+d Keywords: multiple imputation, mi estimate, beta weights
+d
+d Program by Yulia Marchenko, StataCorp <ymarchenko@@stata.com>.
+d
+d Distribution-Date: 19jun2014
+d
+f mibeta.ado
+f mibeta.sthlp
