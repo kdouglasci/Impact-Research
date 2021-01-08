@@ -1,0 +1,214 @@
+{smcl}
+{* 28oct2003}{...}
+{hline}
+help for {hi:atts}{right:(SJ2-4: st0026; SJ4-2: st0026_1)}
+{hline}
+
+{title:Calculate the average treatment effect on the treated using stratification matching}
+
+{p 8 27 2}
+{cmd:atts}
+{it:outcome treatment } 
+[{cmd:if} {it:exp}]
+[{cmd:in} {it:range}]
+, 
+{cmd:pscore}{cmd:(}{it:scorevar}{cmd:)} 
+{cmd:blockid}{cmd:(}{it:blockvar}{cmd:)} 
+[
+{cmdab:comsup}
+{cmdab:det:ail}
+{cmdab:boot:strap }
+{it:bs_options}
+]
+
+
+{title:Description}
+
+{p 4 4 2} {cmd:atts} estimates the average treatment effect on the treated
+(ATT) using stratification matching; users have to provide the name of a
+variable specifying the estimated propensity score and the name of a variable
+specifying a block identifier of the estimated propensity score, both of which
+can be produced with {cmd:pscore}. Since {cmd:atts} is based on the same
+stratification procedure used for estimating the propensity score, it can most
+naturally be used after running {cmd:pscore} because by construction, in each
+block defined by this procedure the covariates are balanced and the assignment
+to treatment can be considered random. 
+
+{p 4 4 2} It is left under the responsibility of the user to select the
+{cmdab:comsup} option if the user provided propensity score and structure of
+blocks requires it. However note that this option becomes irrelevant for the
+computation of the ATT when running {cmd:atts} after using {cmd:pscore} with
+the {cmdab:comsup} option, because in this case the {cmd:blockid} variable is
+defined only on the common support. Hence, in this case, the ATT can be
+computed only on the common support. However, even in this case, it is
+advisable to impose the {cmdab:comsup} option in order to obtain correct
+descriptive statistics for the number of treated and controls.
+
+{p 4 4 2} The ATT is computed using a weighted (by the number of treated)
+average of the block-specific treatment effects. In turn these are computed as
+the difference in average outcomes of treated and controls within the same
+block for which {cmd:pscore} has found all the control variables to be
+balanced.
+
+
+{title:Options}
+
+{p 4 8 2}  
+{cmdab:pscore(}{it:varname}{cmd:)} is a compulsory option that specifies 
+the name of the user-provided variable containing the estimated 
+propensity score.
+
+{p 4 8 2}  
+{cmdab:blockid(}{it:varname}{cmd:)} is a compulsory option that specifies 
+the name of the user-provided variable containing the block identifier of 
+the estimated propensity score.
+
+{p 4 8 2} 
+{cmd:comsup} restricts the computation of the ATT to the region of
+common support.
+
+{p 4 8 2} 
+{cmd:detail} displays more detailed output documenting the steps performed to
+obtain the final results.
+
+{p 4 8 2}                                                      
+{cmd:bootstrap} bootstraps the standard error of the treatment effect.
+
+{p 4 8 2}
+{it:bs_options} allows the use of all options coming with Stata 8's
+{cmdab:bootstrap} command.
+
+
+{title:Remarks}
+
+{p 4 4 2} Please remember to use the {cmdab:update query} command before
+running this program to make sure you have an up-to-date version of Stata
+installed; otherwise, this program may not run properly.
+
+{p 4 4 2} The treatment has to be binary.
+
+{p 4 4 2} The boostrapping procedure does not re-estimate the propensity score 
+at each iteration. This is because different bootstrapped samples imply
+different specifications of the propensity score satisfying the balancing
+property and consequently, different observations could end up in different
+blocks in different bootstrap iterations. This in turn, would preclude the
+computation of the ATT block by block.
+
+{p 4 4 2} Note that there are two special cases as concerns the computation
+of the ATT and its analytical standard error. First, if there is
+no treated and/or no control unit in one (or more) of the blocks,
+the ATT is computed on the remaining blocks that practically
+amounts to imposing a (block-based) common support condition.
+Second, if there is exactly one treated and/or one control in one
+(or more) of the blocks, the ATT in that block can still be
+computed but the standard error cannot. In this case,
+{cmdab:atts} will produce missing values for the standard error.
+However, bootstrapped standard errors can still be computed.
+
+
+{title:Saved results} 
+
+{p 4 4 2} The program stores the estimated treatment
+effect, its standard error, and the t-statistics, respectively, in the
+scalars {cmd:r(atts)}, {cmd:r(seatts)}, and {cmd:r(tsatts)}.
+
+{p 4 4 2} The number of treated and the number of controls are stored,
+respectively, in the scalars {cmd:r(nts)} and {cmd:r(ncs)}.
+
+{p 4 4 2} The bootstrapped standard error and t-statistic are stored,
+respectively, in the scalars {cmd:r(bseatts)} and {cmd:r(btsatts)}.
+
+
+{title:Example}
+
+{p 8 12 2}{cmd:. atts wage training, pscore(myscore) blockid(myblock)}{p_end}
+{p 8 12 2}{cmd:. atts wage training, pscore(myscore) blockid(myblock) boot reps(100) dots}{p_end}
+{p 8 12 2}{cmd:. atts wage training, pscore(myscore) blockid(myblock) comsup boot reps(100) dots}{p_end}
+
+
+{title:References}
+
+{p 4 8 2}
+Cochran, W. and D. B. Rubin. 1973. Controlling bias in observational
+studies: A review. {it:Sankyha} 35: 417-446.
+
+{p 4 8 2}
+Dehejia, R. H and S. Wahba, S. 1999. Causal effects in non-experimental
+studies: Re-evaluating the evaluation of training programs. 
+{it:Journal of the American Statistical Association} 94: 1053-1062.
+
+{p 4 8 2}
+Dehejia, R. H. and S. Wahba. 2002. Propensity score matching methods for
+non-experimental causal studies. 
+{it:Review of Economics and Statistics} 84(1): 151-161.
+
+{p 4 8 2}
+Imbens, G. W. 2000. The role of the propensity score in estimating
+dose-response functions. {it:Biometrika} 87(3): 706-710.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, and P. E. Todd. 1997. Matching as an econometric
+evaluation estimator: evidence from evaluating a job training program.
+{it:Review of Economic Studies} 64: 605-654.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, and P. E. Todd. 1998. Matching as an econometric
+evaluation estimator. {it:Review of Economic Studies} 65: 261-294.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, J. A. Smith, and P. Todd. 1998. 
+Characterizing selection bias using experimental data. 
+{it:Econometrica} 66(5): 1017-98.
+
+{p 4 8 2}
+Heckman, J. J., R. J. LaLonde, J. A. Smith. 1999. The economics and
+econometrics of active labor market programs. In 
+{it:The Handbook of Labor Economics, Volume III}, ed. 
+O. Ashenfelter and D. Card.
+
+{p 4 8 2}
+Lechner, M. 2001. Identification and estimation of causal effects of multiple
+treatments under the conditional independence assumption. 
+In {it:Econometric Evaluation of Labor Market Policies}, ed.
+M. Lechner and F. Pfeiffer, 43-58.  Heidelberg: Physica/Springer.
+
+{p 4 8 2}
+Rosenbaum, P. R. and D. B. Rubin. 1983. The central role of the propensity
+score in observational studies for causal effects. {it:Biometrika} 70(1):
+41-55.
+
+{p 4 8 2}
+Rosenbaum, P. R. and D. B. Rubin. 1984. Reducing bias in
+observational studies using subclassification on the propensity score.
+{it:Journal of the American Statistical Association} 79: 516-524.
+
+{p 4 8 2}
+Rubin, D. B. 1974. Estimating causal effects of treatments in randomized and
+non-randomized studies. {it:Journal of Educational Psychology} 66: 688-701.
+
+{p 4 8 2}
+Smith, J. and P. Todd. 2003. Does matching overcome LaLonde's critique of 
+nonexperimental estimators? {it:Journal of Econometrics}: forthcoming.
+
+
+{title:Authors} 
+ 
+	{browse "http://www.sobecker.de":Sascha O. Becker} 
+	Center for Economic Studies, University of Munich 
+  
+	{browse "http://www.iue.it/Personal/Ichino":Andrea Ichino} 
+	Department of Economics, European University Institute, Florence 
+  
+        Email {browse "mailto:so.b@gmx.net":so.b@gmx.net} or {browse "mailto:andrea.ichino@iue.it":andrea.ichino@iue.it} if you observe any problems. 
+			
+	
+{title:Also see}
+
+{p 4 19 2}Online: help for {help pscore}, {help attr}, {help attk},
+{help attnw}, {help attnd} if installed and {help bs}. 
+
+{p 4 4 2}Further details on the analytical formulas and on the algorithms 
+used in these programs  can be found under  
+{browse "http://www.sobecker.de":http://www.sobecker.de} 
+or 
+{browse "http://www.iue.it/Personal/Ichino":http://www.iue.it/Personal/Ichino}.

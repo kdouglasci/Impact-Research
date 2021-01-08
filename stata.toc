@@ -9,3 +9,4 @@ p rsort Randomly sorts dataset in memory with reproducible options, from SSC
 p estout Simplifies regression table output, from Stata Journal (st0085_1)
 p glmdose Package of commands for estimation of the generalized propensity score, from Stata Journal (st0328)
 p hte Heterogeneous Treatment Effect Analysis from SSC
+p attk Estimate agreage treatment effects based on propensity scores, from Stata Journal (st0026_1)

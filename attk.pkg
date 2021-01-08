@@ -1,0 +1,16 @@
+v 1
+d Estimation of average treatment effects based on propensity scores
+d from Stata Journal st0026_1
+d
+f attk.ado
+f attk.hlp
+f attnd.ado
+f attnd.hlp
+f attnw.ado
+f attnw.hlp
+f attr.ado
+f attr.hlp
+f atts.ado
+f atts.hlp
+f pscore.ado
+f pscore.hlp

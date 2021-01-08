@@ -1,0 +1,183 @@
+{smcl}
+{* 28oct2003}{...}
+{hline}
+help for {hi:pscore}{right:(SJ2-4: st0026; SJ4-2: st0026_1)}
+{hline}
+
+{title:Estimation of the propensity score}
+
+{p 8 27 2}
+{cmd:pscore}
+{it: treatment varlist} 
+[{it:weight}]
+[{cmd:if} {it:exp}]
+[{cmd:in} {it:range}]
+,
+{cmd:pscore}{cmd:(}{it:newvar}{cmd:)}
+[{cmd:blockid}{cmd:(}{it:newvar}{cmd:)}
+{cmdab:det:ail}
+{cmd:logit}
+{cmd:comsup}
+{cmd:level}{cmd:(}{it:#}{cmd:)}
+{cmd:numblo}{cmd:(}{it:#}{cmd:)}
+]
+
+{p 4 4 2}{cmd:fweight}s, {cmd:iweight}s, and {cmd:pweight}s are allowed;
+see help {help weights}.
+
+
+{title:Description}
+
+{p 4 4 2} {cmd:pscore} estimates the propensity score (pscore) of the
+{it:treatment} on {it:varlist} (the control variables) using a probit (or
+logit) model and stratifies individuals in blocks according to the pscore;
+displays summary statistics of the pscore and of the stratification; checks
+that the balancing property is satisfied; if not satisfied asks for a less
+parsimonious specification of the pscore; saves the estimated pscore and, 
+optionally, the block number. The estimated propensity scores can then be
+used together with {cmd:attr}, {cmd:attk}, {cmd:attnw}, {cmd:attnd}, and
+{cmd:atts} to obtain estimates of the average treatment effect on the treated
+using, respectively, radius matching, kernel matching, nearest neighbor
+matching (in one of the two versions: equal weights and random draw), and
+stratification, the latter using the block numbers as an input.
+
+
+{title:Options}
+
+{p 4 8 2} {cmd:pscore}{cmd:(}{it:newvar}{cmd:)} is required and asks users
+to specify the variable name for the estimated propensity score,
+which is added to the dataset.
+
+{p 4 8 2} {cmd:blockid}{cmd:(}{it:newvar}{cmd:)} allows users
+to specify the variable name for the block number of the estimated 
+propensity score, which is added to the dataset.
+
+{p 4 8 2} 
+{cmd:detail} displays more detailed output documenting the steps performed
+to obtain the final results.
+
+{p 4 8 2} {cmd:logit} uses a logit model to estimate the propensity score
+instead of the default {cmd:probit} model
+
+{p 4 8 2} {cmd:comsup} restricts the analysis of the balancing
+property to all treated plus those controls in the region of
+common support. A dummy variable named {it:comsup} is added to the
+dataset to identify the observations in the common support.
+
+{p 4 8 2} {cmd:level}{cmd:(}{it:real}{cmd:)} allows to set the
+significance level of the tests of the balancing property. 
+The default is 0.01.
+
+{p 4 8 2} {cmd:numblo}{cmd:(}{it:real}{cmd:)} allows to set the
+number of blocks of equal score range to be used at the beginning
+of the test of the balancing hypothesis. The default is set to 5 blocks.
+ 
+
+{title:Remarks} 
+
+{p 4 4 2} Please remember to use the {cmd:update query} command before
+running this program to make sure you have an up-to-date version of Stata
+installed; otherwise, this program may not run properly.
+
+{p 4 4 2} The treatment has to be binary.
+
+{p 4 4 2} Make sure that the variables in varlist contain no missing values!
+
+{p 4 4 2} With the option {cmd:detail}, the output of this program may be very
+long but it offers useful diagnostics to assess the validity of the propensity
+score approach to the estimation of the ATT of interest. 
+
+
+{title:Examples}
+
+{p 8 12 2}{cmd:. pscore training age age2, pscore(mypscore)}{p_end}
+{p 8 12 2}{cmd:. pscore training age age2, pscore(mypscore) blockid(myblock) comsup}{p_end}
+{p 8 12 2}{cmd:. pscore training age age2, pscore(mypscore) logit level(0.001) numblo(10)}{p_end}
+
+
+{title:References}
+
+{p 4 8 2}
+Cochran, W. and D. B. Rubin. 1973. Controlling bias in observational
+studies: A review. {it:Sankyha} 35: 417-446.
+
+{p 4 8 2}
+Dehejia, R. H and S. Wahba, S. 1999. Causal effects in non-experimental
+studies: Re-evaluating the evaluation of training programs. 
+{it:Journal of the American Statistical Association} 94: 1053-1062.
+
+{p 4 8 2}
+Dehejia, R. H. and S. Wahba. 2002. Propensity score matching methods for
+non-experimental causal studies. 
+{it:Review of Economics and Statistics} 84(1): 151-161.
+
+{p 4 8 2}
+Imbens, G. W. 2000. The role of the propensity score in estimating
+dose-response functions. {it:Biometrika} 87(3): 706-710.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, and P. E. Todd. 1997. Matching as an econometric
+evaluation estimator: evidence from evaluating a job training program.
+{it:Review of Economic Studies} 64: 605-654.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, and P. E. Todd. 1998. Matching as an econometric
+evaluation estimator. {it:Review of Economic Studies} 65: 261-294.
+
+{p 4 8 2}
+Heckman, J. J., H. Ichimura, J. A. Smith, and P. Todd. 1998. 
+Characterizing selection bias using experimental data. 
+{it:Econometrica} 66(5): 1017-98.
+
+{p 4 8 2}
+Heckman, J. J., R. J. LaLonde, J. A. Smith. 1999. The economics and
+econometrics of active labor market programs. In 
+{it:The Handbook of Labor Economics, Volume III}, ed. 
+O. Ashenfelter and D. Card.
+
+{p 4 8 2}
+Lechner, M. 2001. Identification and estimation of causal effects of multiple
+treatments under the conditional independence assumption. 
+In {it:Econometric Evaluation of Labor Market Policies}, ed.
+M. Lechner and F. Pfeiffer, 43-58.  Heidelberg: Physica/Springer.
+
+{p 4 8 2}
+Rosenbaum, P. R. and D. B. Rubin. 1983. The central role of the propensity
+score in observational studies for causal effects. {it:Biometrika} 70(1):
+41-55.
+
+{p 4 8 2}
+Rosenbaum, P. R. and D. B. Rubin. 1984. Reducing bias in
+observational studies using subclassification on the propensity score.
+{it:Journal of the American Statistical Association} 79: 516-524.
+
+{p 4 8 2}
+Rubin, D. B. 1974. Estimating causal effects of treatments in randomized and
+non-randomized studies. {it:Journal of Educational Psychology} 66: 688-701.
+
+{p 4 8 2}
+Smith, J. and P. Todd. 2003. Does matching overcome LaLonde's critique of 
+nonexperimental estimators? {it:Journal of Econometrics}: forthcoming.
+
+
+{title:Authors}
+
+	{browse "http://www.sobecker.de":Sascha O. Becker}
+	Center for Economic Studies, University of Munich
+ 
+	{browse "http://www.iue.it/Personal/Ichino":Andrea Ichino}
+	Department of Economics, European University Institute, Florence
+ 
+        Email {browse "mailto:so.b@gmx.net":so.b@gmx.net} or {browse "mailto:andrea.ichino@iue.it":andrea.ichino@iue.it} if you observe any problems.
+
+
+{title:Also see}
+
+{p 4 19 2} Online: help for {help atts}, {help attr}, {help attk}, {help attnw}, 
+{help attnd} if installed. 
+
+{p 4 4 2}Further details on the analytical formulas and on the algorithms 
+used in these programs  can be found under  
+{browse "http://www.sobecker.de":http://www.sobecker.de} 
+or 
+{browse "http://www.iue.it/Personal/Ichino":http://www.iue.it/Personal/Ichino}.
