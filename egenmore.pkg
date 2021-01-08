@@ -29,6 +29,7 @@ d Support: email N.J.Cox@@durham.ac.uk
 d
 d Distribution-Date: 20190124
 d
+t e contains the commands for extended egen functions
 f e/egenmore.sthlp
 f e/_gadjl.ado
 f e/_gadju.ado
