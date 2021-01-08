@@ -1,0 +1,6 @@
+v 1
+d 'CHI2POWER' Computes power contingency tables
+d From UCLA's Stata files
+d
+f chi2power.ado
+f chi2power.sthlp
