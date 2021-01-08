@@ -29,8 +29,8 @@ d Support: email N.J.Cox@@durham.ac.uk
 d
 d Distribution-Date: 20190124
 d
-f ../egenmore/egenmore/egenmore.sthlp
-f ../egenmore/_gadjl.ado
+f egenmore/egenmore/egenmore.sthlp
+f egenmore/_gadjl.ado
 f egenmore/_gadju.ado
 f egenmore/_gaxis.ado
 f egenmore/_gbase.ado
