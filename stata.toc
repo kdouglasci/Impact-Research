@@ -16,3 +16,8 @@ p psestimate module to estimate the propensity score, from SSC
 p mypkg Informs on packages installed on machine, from SSC
 p svvarlbl Saves variable labels to file, from SSC
 p egenmore Additional -egen- functions from SSC
+p chi2power Package from UCLA tp compute power for contingency tables.
+p pstrata Command from SSC for optimal propensity score stratification
+p iefieldkit Package from SSC for data collection and cleaning
+p lassopack Package of commands from SSC for lasso, square-root lasso, elastic net, ridge, adaptive lasso estimation and cross-validation​
+p corr2docx Command from SSC to report correlation coefficients from estpost corr & spearman
