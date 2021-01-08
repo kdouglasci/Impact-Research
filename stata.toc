@@ -13,3 +13,4 @@ p attk Estimate agreage treatment effects based on propensity scores, from Stata
 p psestimate module to estimate the propensity score, from SSC
 p mypkg Informs on packages installed on machine, from SSC
 p svvarlbl Saves variable labels to file, from SSC
+p egenmore Additional -egen- functions from SSC
