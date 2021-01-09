@@ -21,3 +21,23 @@ p pstrata Command from SSC for optimal propensity score stratification
 p iefieldkit Package from SSC for data collection and cleaning
 p lassopack Package of commands from SSC for lasso, square-root lasso, elastic net, ridge, adaptive lasso estimation and cross-validation​
 p corr2docx Command from SSC to report correlation coefficients from estpost corr & spearman
+p factortest SSC command to perform Bartlett's test for sphericity and Kaiser-Meyer-Olkin Measure of Sampling Adequacy
+p tabstat2excel SSC command to export summary statistics (n, mean, median, min, and max) for a numeric variable or several numeric variables with variable labels to an Excel file.
+p sortl SSC command to sort factor loadings or rotated matrix from PCA or factor
+p metan SSC package for various aspects of fixed and random effects meta-analysis 
+p vreverse SSC command to generate a new variable as a reversed copy of an existing categorical variable
+p r2sem SSC package to perform Overall System Structural Equation Modeling (SEM) R2, Adj. R2, F-Test, and Chi2-Test
+p randinf SSC package to calculate the treatment effect and p-value of a stratified randomized controlled experiment
+p rev Reverses value order of the variables as a new variable, from SSC
+p elasticregress SSC package to calculate elastic net regression, lasso regression and ridge regression
+p vlc SSC command to compare value labels across datasets
+p crossfold SSC command to perform k-fold cross-validation
+p povcalnet SSC package to compute World Bank Global Poverty and Inequality measures
+p grqreg SSC package to graph the coefficients of a quantile regression
+p outreg2 SSC package that helps arrange the output of regression tables
+p svysampsi SSC package to calculate sample size for a simple random survey with a dichotomous outcome
+p mibeta Stata-written command to report standardized coefficients after a linear regression with multiply-imputed data
+p asdoc Command by Attaullah Shah to create high-quality tables in MS Word from Stata output
+p polychoric Calculate polychoric, polyseric correlations and PCA, form Stas Kolenikov
+p readreplace Read manual corrections from a replacements file, from SSC
+p reclink Conduct fuzzy merges on datasets without matching unique ids, from SSC
