@@ -1,0 +1,9 @@
+d 'POLYCHORIC' commands to estimate polychoric and polyserial correlations, and perform PCA on resulting matrix
+d From Stas Kolenikov, http://staskolenikov.net/stata/
+d
+f polychoric.ado
+f polychoricpca.ado
+f polych_ll.ado
+f polyser_ll.ado
+f polychoric.hlp
+f polychoricpca.hlp
