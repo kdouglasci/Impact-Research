@@ -259,7 +259,7 @@ forvalues j=1/`cnum' {
 		
 		*Calculate rho and nro of observations. Type of calculation will depend on whether 'partial' is specified or not.
 		if strlen("`partial'")>0 {
-			if `var1'==`var2' {
+			if "`var1'"=="`var2'" {
 			}
 			else {
 				qui pcorr `var2' `var1' `tlist' `if2' `in' [aw=`weight']
