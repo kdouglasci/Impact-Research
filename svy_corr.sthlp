@@ -18,7 +18,7 @@
 
 {p 8 17 2}
 {cmdab:svy_corr}
-[{varlist}]
+{varlist}
 {ifin}
 [{cmd:,} {it:options}]
 
