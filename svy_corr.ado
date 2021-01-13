@@ -259,12 +259,16 @@ forvalues j=1/`cnum' {
 		
 		*Calculate rho and nro of observations. Type of calculation will depend on whether 'partial' is specified or not.
 		if strlen("`partial'")>0 {
-			qui pcorr `var2' `var1' `tlist' `if2' `in' [aw=`weight']
-			mat z=r(p_corr)
-			loc rho_raw=z[1,1]
-			if `rho_raw'>=-1 & `rho_raw'<=1 {
-				matrix rvals[`i',`j']=round(`rho_raw',.0001)
-				matrix nvals[`i',`j']=r(N)
+			if `var1'==`var2' {
+			}
+			else {
+				qui pcorr `var2' `var1' `tlist' `if2' `in' [aw=`weight']
+				mat z=r(p_corr)
+				loc rho_raw=z[1,1]
+				if `rho_raw'>=-1 & `rho_raw'<=1 {
+					matrix rvals[`i',`j']=round(`rho_raw',.0001)
+					matrix nvals[`i',`j']=r(N)
+				}
 			}
 		}
 		else {
