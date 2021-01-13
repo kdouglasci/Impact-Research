@@ -1,12 +1,18 @@
-v 1
-d 'ESTOUT': Simplifies regression tables
-d Consider downloading directly from Stata Journal
+v 3
+d estout
+d Author: Ben Jann, University of Bern, jann@soz.unibe.ch
 d
-f _eststo.ado
-f _eststo.hlp
-f estout.ado
-f estout.hlp
-f eststo.ado
-f eststo.hlp
-f esttab.ado
+d Distribution-Date: 13jun2019
+f estadd.ado
+f estpost.hlp
+f estadd.hlp
+f estpost.ado
 f esttab.hlp
+f estout.ado
+f esttab.ado
+f estout_mystyle.def
+f estout.hlp
+f eststo.hlp
+f _eststo.hlp
+f eststo.ado
+f _eststo.ado
