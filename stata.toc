@@ -42,3 +42,4 @@ p polychoric Calculate polychoric, polyseric correlations and PCA, form Stas Kol
 p readreplace Read manual corrections from a replacements file, from SSC
 p reclink Conduct fuzzy merges on datasets without matching unique ids, from SSC
 p psestimate SSC Module to estimate the propensity score proposed by Imbens and Rubin
+p cfout module to compare two datasets, saving a list of differences
