@@ -44,3 +44,4 @@ p reclink Conduct fuzzy merges on datasets without matching unique ids, from SSC
 p psestimate SSC Module to estimate the propensity score proposed by Imbens and Rubin
 p cfout module to compare two datasets, saving a list of differences
 p descsave Save variable characteristics to a do or dta file
+p collin computes collinearity diagnostic measures

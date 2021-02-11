@@ -1,0 +1,16 @@
+d computes several collinearity diagnostic measures including
+d VIF, tolerance, eigenvalues, condition index, and R-squared.
+d It will compute the eigenvalues and condition index on either
+d the raw SSCP with an intercept (default) or the deviation SSCP
+d without an intercept.
+d
+d Author: Philip B. Ender
+d Statistical Computing and Consulting
+d UCLA Office of Academic Computing
+d ender@ucla.edu
+d      
+d STATA ado and hlp files in the package
+d distribution-date: 20101123
+d
+f collin.ado
+f collin.hlp
