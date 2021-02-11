@@ -1,0 +1,6 @@
+v 1
+d 'FAPARA' Factor analysis parallel analysis.
+d From UCLA's Stata files
+d
+f fapara.ado
+f fapara.hlp

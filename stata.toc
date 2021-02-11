@@ -45,3 +45,7 @@ p psestimate SSC Module to estimate the propensity score proposed by Imbens and 
 p cfout module to compare two datasets, saving a list of differences
 p descsave Save variable characteristics to a do or dta file
 p collin computes collinearity diagnostic measures
+p mdesc Produces tables to analyze prevalence of missing valuess
+p evalue_estat Postestimation tool for sensitivity analyses of unmeasured confounding
+p fitstat Compute fit statistics for single equation regression models.
+p fapara Factor analysis parallel analysis.
