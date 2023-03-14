@@ -23,6 +23,10 @@ ssc install reclink
 
 ssc install rev
 
+ssc install geodist
+
+ssc install geodist2
+
 *not working, not an option for apple
 *net install usespss, from("https://kdouglasci.github.io/Impact-Research") replace
 
@@ -129,5 +133,3 @@ ssc install outreg2
 ssc install svvarlbl
 
 ssc install tabstat2excel
-
-
